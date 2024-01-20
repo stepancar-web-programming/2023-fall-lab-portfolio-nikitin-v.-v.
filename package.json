@@ -23,8 +23,7 @@
     "htmlWhitespaceSensitivity": "css"
   },
   "scripts": {
-    "build": "npm run build",
-    "compile": "npm run compile",
+    "build": "npm run compile",
     "lint:html": "htmlhint src/index.html",
     "lint": "eslint --ext .js",
     "format": "prettier --write \"**/*.{js,html}\"",
