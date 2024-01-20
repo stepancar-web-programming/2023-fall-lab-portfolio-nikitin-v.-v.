@@ -7,7 +7,9 @@
     "eslint": "^8.56.0",
     "eslint-plugin-html": "^7.1.0",
     "htmlhint": "^1.1.4",
-    "prettier": "^3.2.4"
+    "prettier": "^3.2.4",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "prettier": {
     "printWidth": 80,
@@ -23,7 +25,7 @@
     "htmlWhitespaceSensitivity": "css"
   },
   "scripts": {
-    "build": "npm run compile",
+    "build": "webpack --config webpack.config.js",
     "lint:html": "htmlhint src/index.html",
     "lint": "eslint --ext .js",
     "format": "prettier --write \"**/*.{js,html}\"",
