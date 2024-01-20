@@ -1,45 +1,10 @@
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack'); //to access built-in plugins
 
 module.exports = {
-  entry: './src/index.html', 
-  output: {
-    path: path.resolve(__dirname, 'dist'), // Путь к папке, в которую будет собран ваш проект
-    filename: 'bundle.js' // Имя файла, в который будет собран ваш проект
-  },
   module: {
-    rules: [
-        {
-          test: /\.js$/, // Проверять все файлы с расширением .js
-          exclude: /node_modules/, // Исключить папку node_modules
-          use: {
-            loader: 'babel-loader', // Использовать Babel для транспиляции JavaScript
-            options: {
-              presets: ['@babel/preset-env'] // Настройки Babel
-            }
-          }
-        }
-      ],
-    rules: [
-        {
-          test: /\.html$/, // Проверять все файлы с расширением .html
-          use: [
-            {
-              loader: 'html-loader', // Использовать загрузчик HTML
-              options: {
-                minimize: true // Минимизировать HTML-код
-              }
-            }
-          ]
-        }
-      ],
-    rules: [
-        {
-          test: /\.css$/, // Проверять все файлы с расширением .css
-          use: [
-            'style-loader', // Добавить стили в тег <style> внутри HTML
-            'css-loader' // Загрузить и обработать CSS-файлы
-          ]
-        }
-      ]
-  }
+    mode: 'dev',
+    rules: [{ test: /\.txt$/, use: 'raw-loader' }],
+  },
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
 };
