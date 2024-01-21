@@ -12,19 +12,21 @@ const arrayCarousel = [
 
 let counter = 0;
 
-const setImage = () => {
+function setImage(){
   document.getElementById('carousel-image').src = arrayCarousel[counter];
   counter = (counter + 1) % arrayCarousel.length;
-};
+  setNextImage();
+  setPreviousImage(); 
+}
 
-const setNextImage = () => {
+function setNextImage(){
   counter = (counter + 1) % arrayCarousel.length;
   setImage();
-};
+}
 
-const setPreviousImage = () => {
+function setPreviousImage(){
   counter = (counter - 2 + arrayCarousel.length) % arrayCarousel.length;
   setImage();
-};
+}
 
 setInterval(setImage, 10000);
